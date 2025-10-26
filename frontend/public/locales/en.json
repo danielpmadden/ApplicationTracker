@@ -1,0 +1,30 @@
+{
+  "app": {
+    "title": "Hiring Tracker",
+    "subtitle": "Domino's tracker for hiring — no excuses for ghosting.",
+    "footer": "Built with empathy and accountability."
+  },
+  "dashboard": {
+    "title": "Recruiter Control Tower",
+    "automationPreview": "Automation Preview",
+    "automationMessage": "Automatically send a {{channel}} update to {{name}} when they move to {{stage}}.",
+    "columns": {
+      "received": "Received",
+      "inReview": "In Review",
+      "interviewing": "Interviewing",
+      "offer": "Offer",
+      "rejected": "Rejected"
+    }
+  },
+  "track": {
+    "title": "Your Application Journey",
+    "invalidToken": "This tracking link is invalid or expired. Please contact your recruiter.",
+    "stages": {
+      "received": "📬 Application received",
+      "inReview": "🔍 Recruiter is reviewing your profile",
+      "interviewing": "🎤 Interviews in progress",
+      "offer": "🎉 Offer in motion",
+      "rejected": "💌 Decision shared"
+    }
+  }
+}

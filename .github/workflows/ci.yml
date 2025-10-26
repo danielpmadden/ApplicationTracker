@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - name: Install root dependencies
+        run: npm install
+      - name: Install frontend dependencies
+        run: npm --prefix frontend install
+      - name: Lint
+        run: npm run lint
+      - name: Unit and contract tests
+        run: npm run test
+      - name: Build frontend
+        run: npm run build:frontend
+      - name: Sync frontend assets
+        run: npm run sync:frontend
+      - name: Start server
+        run: |
+          npm start &
+          echo $! > server.pid
+        env:
+          PORT: 4173
+          NODE_ENV: production
+          JWT_SECRET: insecure-default
+      - name: Wait for healthcheck
+        run: npx wait-on http://127.0.0.1:4173/health
+      - name: E2E tests
+        run: npm run test:e2e
+        env:
+          PLAYWRIGHT_BASE_URL: http://127.0.0.1:4173
+          JWT_SECRET: insecure-default
+      - name: Stop server
+        if: always()
+        run: |
+          kill $(cat server.pid)
+          rm server.pid

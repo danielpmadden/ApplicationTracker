@@ -1,0 +1,8 @@
+{
+  "application_submitted": "received",
+  "recruiter_screen": "inReview",
+  "interview_panel": "interviewing",
+  "offer_extended": "offer",
+  "hiring_manager_reject": "rejected",
+  "candidate_withdrew": "rejected"
+}
