@@ -44,10 +44,5 @@ jobs:
       - name: Stop server
         if: always()
         run: |
-          if [ -f server.pid ]; then
-            echo "Stopping server PID $(cat server.pid)..."
-            kill $(cat server.pid) || true
-            rm server.pid
-          else
-            echo "No server.pid found; skipping stop."
-          fi
+          kill $(cat server.pid)
+          rm server.pid
