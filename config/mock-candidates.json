@@ -1,0 +1,23 @@
+[
+  {
+    "id": "cand-001",
+    "fullName": "Ada Lovelace",
+    "role": "Staff Engineer",
+    "status": "application_submitted",
+    "channel": "email"
+  },
+  {
+    "id": "cand-002",
+    "fullName": "Grace Hopper",
+    "role": "Platform Engineer",
+    "status": "interview_panel",
+    "channel": "sms"
+  },
+  {
+    "id": "cand-003",
+    "fullName": "Alan Turing",
+    "role": "ML Researcher",
+    "status": "offer_extended",
+    "channel": "email"
+  }
+]
